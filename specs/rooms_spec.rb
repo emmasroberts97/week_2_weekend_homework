@@ -26,9 +26,17 @@ class RoomsTest < MiniTest::Test
     @room.check_in_guests(@Scott)
     assert_equal(2, @room.check_room_count)
   end
-  def test_guest_check_out
-    @room.check_out_guests()
+
+  def test_guests_check_out
+    @room.check_out_all_guests()
     assert_equal(0, @room.check_room_count)
+  end
+
+  def test_guest_check_out
+    @room.check_in_guests(@Emma)
+    @room.check_in_guests(@Scott)
+    @room.check_out_guest(@Scott)
+    assert_equal(1, @room.check_room_count)
   end
 
   def test_song_add
@@ -50,5 +58,5 @@ class RoomsTest < MiniTest::Test
     assert_equal(90, @Emma.get_money)
     assert_equal(10, @room.get_money_made)
   end
-  
+
 end

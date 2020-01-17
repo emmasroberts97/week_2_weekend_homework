@@ -35,9 +35,17 @@ class Rooms
     end
   end
 
-  def check_out_guests()
+  def check_out_all_guests()
     @guests.clear()
   end
+
+  def check_out_guest(customer)
+    for guest in @guests
+      if guest == customer
+        @guests.delete(customer)
+      end
+    end
+  end 
 
   def add_song(song)
     @songs.push(song)
