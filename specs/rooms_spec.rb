@@ -50,5 +50,5 @@ class RoomsTest < MiniTest::Test
     assert_equal(90, @Emma.get_money)
     assert_equal(10, @room.get_money_made)
   end
-
+  
 end

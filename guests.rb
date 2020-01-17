@@ -2,17 +2,28 @@ class Guests
 
   attr_accessor :name, :favourite_song
 
-  def initialize(name, favourite_song, money)
+  def initialize(name, song, money)
     @name = name
-    @favourite_song = favourite_song
+    @favourite_song = song
     @money = money
   end
 
-  def pay_entry_fee(value)
-    @money -= value
+  def pay_entry_fee()
+    @money -= 10
   end
 
   def get_money()
     return @money
-  end 
+  end
+
+  def customer_woohoo(room)
+    for song in room.songs
+      if @favourite_song == song.name
+        return "Woohoo!"
+      elsif @favourite_song != song.name
+        return "Boohoo!"
+      end
+    end
+  end
+
 end
