@@ -13,7 +13,9 @@ class GuestsTest < MiniTest::Test
 
   def setup
     @Jim = Guests.new("Jim", "ABC", 20)
+
     @room = Rooms.new("Rocky")
+
     @song1 = Songs.new("ABC")
     @song2 = Songs.new("Baby Shark")
   end

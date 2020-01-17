@@ -10,6 +10,10 @@ class Rooms
     @money_made = 0
   end
 
+  def get_money_made()
+    return @money_made
+  end
+
   def check_room_count()
     return @guests.count
   end
@@ -18,12 +22,8 @@ class Rooms
     return @songs.count
   end
 
-  def check_waiting_list()
+  def check_waiting_list_count()
     return @waiting_list.count
-  end
-
-  def collect_entry_fee()
-    @money_made += 10
   end
 
   def check_in_guests(customer)
@@ -52,9 +52,8 @@ class Rooms
     @songs.push(song)
   end
 
-  def get_money_made()
-    return @money_made
-  end
+  def collect_entry_fee()
+    @money_mad
 
   def customer_buys_drink(customer, drink)
     if customer.get_money() >= drink.price

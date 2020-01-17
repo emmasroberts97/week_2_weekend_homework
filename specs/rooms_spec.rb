@@ -53,7 +53,7 @@ class RoomsTest < MiniTest::Test
     @room.check_in_guests(@Scott)
     @room.check_in_guests(@Katherine)
     assert_equal(2, @room.check_room_count)
-    assert_equal(1, @room.check_waiting_list)
+    assert_equal(1, @room.check_waiting_list_count)
   end
 
   def test_entry_fee

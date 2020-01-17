@@ -8,16 +8,16 @@ class Guests
     @money = money
   end
 
+  def get_money()
+    return @money
+  end
+
   def pay_entry_fee()
     @money -= 10
   end
 
   def buy_drink(drink)
     @money -= drink.price
-  end
-
-  def get_money()
-    return @money
   end
 
   def customer_woohoo(room)
