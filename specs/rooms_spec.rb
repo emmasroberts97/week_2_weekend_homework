@@ -14,7 +14,7 @@ class RoomsTest < MiniTest::Test
 
     @Emma = Guests.new("Emma", "Dancing Queen", 100)
     @Scott = Guests.new("Scott", "All Star", 80)
-
+    @Katherine = Guests.new("Katherine", "Old Town Road", 75)
 
     @song1 = Songs.new("Dancing Queen")
     @song2 = Songs.new("Old Town Road")
@@ -36,5 +36,19 @@ class RoomsTest < MiniTest::Test
     @room.add_song(@song2)
     assert_equal(2, @room.check_song_count)
   end
-  
+
+  def test_add_to_waiting_list
+    @room.check_in_guests(@Emma)
+    @room.check_in_guests(@Scott)
+    @room.check_in_guests(@Katherine)
+    assert_equal(2, @room.check_room_count)
+    assert_equal(1, @room.check_waiting_list)
+  end
+
+  def test_entry_fee
+    @room.check_in_guests(@Emma)
+    assert_equal(90, @Emma.get_money)
+    assert_equal(10, @room.get_money_made)
+  end
+
 end

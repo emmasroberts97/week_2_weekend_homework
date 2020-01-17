@@ -7,4 +7,12 @@ class Guests
     @favourite_song = favourite_song
     @money = money
   end
+
+  def pay_entry_fee(value)
+    @money -= value
+  end
+
+  def get_money()
+    return @money
+  end 
 end
