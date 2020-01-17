@@ -53,7 +53,8 @@ class Rooms
   end
 
   def collect_entry_fee()
-    @money_mad
+    @money_made += 10
+  end
 
   def customer_buys_drink(customer, drink)
     if customer.get_money() >= drink.price
