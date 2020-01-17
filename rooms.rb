@@ -1,6 +1,6 @@
 class Rooms
 
-  attr_accessor :name, :songs, :guests, :waiting_list
+  attr_reader :name, :songs, :guests, :waiting_list
 
   def initialize(name)
     @name = name
