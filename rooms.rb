@@ -45,7 +45,7 @@ class Rooms
         @guests.delete(customer)
       end
     end
-  end 
+  end
 
   def add_song(song)
     @songs.push(song)
