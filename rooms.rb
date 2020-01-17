@@ -1,8 +1,9 @@
 class Rooms
 
-  attr_accessor :songs, :guests, :waiting_list
+  attr_accessor :name, :songs, :guests, :waiting_list
 
-  def initialize()
+  def initialize(name)
+    @name = name
     @songs = []
     @guests = []
     @waiting_list = []
@@ -53,6 +54,15 @@ class Rooms
 
   def get_money_made()
     return @money_made
+  end
+
+  def customer_buys_drink(customer, drink)
+    if customer.get_money() >= drink.price
+      customer.buy_drink(drink)
+      @money_made += drink.price
+    else
+      return "You don't have enough money!"
+    end
   end
 
 end

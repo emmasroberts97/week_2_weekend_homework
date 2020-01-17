@@ -4,13 +4,14 @@ require('minitest/reporters')
 require_relative('../guests.rb')
 require_relative('../rooms.rb')
 require_relative('../songs.rb')
+require_relative('../drinks.rb')
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 class RoomsTest < MiniTest::Test
 
   def setup
-    @room = Rooms.new()
+    @room = Rooms.new("Sierra")
 
     @Emma = Guests.new("Emma", "Dancing Queen", 100)
     @Scott = Guests.new("Scott", "All Star", 80)
@@ -18,6 +19,8 @@ class RoomsTest < MiniTest::Test
 
     @song1 = Songs.new("Dancing Queen")
     @song2 = Songs.new("Old Town Road")
+
+    @drink = Drinks.new("G&T", 5)
 
   end
 
@@ -58,5 +61,12 @@ class RoomsTest < MiniTest::Test
     assert_equal(90, @Emma.get_money)
     assert_equal(10, @room.get_money_made)
   end
+
+  def test_customer_buys_drink()
+    @room.customer_buys_drink(@Emma, @drink)
+    assert_equal(5, @room.get_money_made)
+    assert_equal(95, @Emma.get_money)
+  end
+
 
 end

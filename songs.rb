@@ -6,5 +6,4 @@ class Songs
     @name = name
   end
 
-  
 end

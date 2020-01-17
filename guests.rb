@@ -12,6 +12,10 @@ class Guests
     @money -= 10
   end
 
+  def buy_drink(drink)
+    @money -= drink.price
+  end
+
   def get_money()
     return @money
   end

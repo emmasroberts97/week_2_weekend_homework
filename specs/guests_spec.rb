@@ -4,6 +4,8 @@ require('minitest/reporters')
 require_relative('../guests.rb')
 require_relative('../songs.rb')
 require_relative('../rooms.rb')
+require_relative('../drinks.rb')
+
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -11,7 +13,7 @@ class GuestsTest < MiniTest::Test
 
   def setup
     @Jim = Guests.new("Jim", "ABC", 20)
-    @room = Rooms.new()
+    @room = Rooms.new("Rocky")
     @song1 = Songs.new("ABC")
     @song2 = Songs.new("Baby Shark")
   end
